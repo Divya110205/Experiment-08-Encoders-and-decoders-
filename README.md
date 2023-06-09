@@ -55,42 +55,68 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
 
+1.Create a project with required entities.
 
+2.Create a module along with respective file name for both Multiplexer and De-multiplexer.
+
+3.Run the module and get the respective RTL outputs.
+
+4.Create university program(VWF) for getting timing diagram.
+
+5.Give the respective inputs for timing diagram and obtain the results.
 
 ### PROGRAM 
+
+### Encoder
+module encoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+
+### Decoder
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+output d0,d1,d2,d3,d4,d5,d6,d7;
+input a,b,c;
+assign d0=(~a&~b&~c);
+assign d1=(~a&~b&c);
+assign d2=(~a&b&~c);
+assign d3=(~a&b&c);
+assign d4=(a&~b&~c);
+assign d5=(a&~b&c);
+assign d6=(a&b&~c);
+assign d7=(a&b&c);
+endmodule
+
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: A.DIVYA
+RegisterNumber:  212222230034
 */
 
-
-
-
-
-
 ### RTL LOGIC  
+### Encoder
+![ec rtl](https://github.com/Divya110205/Experiment-08-Encoders-and-decoders-/assets/119404855/242edbe4-e719-48cd-8dee-5b8ce6b1ee07)
 
-
-
-
-
-
-
+### Decoder
+![dc rtl](https://github.com/Divya110205/Experiment-08-Encoders-and-decoders-/assets/119404855/da221c5d-10c0-402d-b2fe-69f57a1db73c)
 
 ### TIMING DIGRAMS  
+### Encoder
+![ec td](https://github.com/Divya110205/Experiment-08-Encoders-and-decoders-/assets/119404855/c401b40e-0768-4bb2-8c7a-34fc336a04d7)
 
-
-
-
+### Decoder
+![dc td](https://github.com/Divya110205/Experiment-08-Encoders-and-decoders-/assets/119404855/fa31f096-95e3-429c-bb77-7a636f46892f)
 
 ### TRUTH TABLE 
+### Encoder
+![ec tt](https://github.com/Divya110205/Experiment-08-Encoders-and-decoders-/assets/119404855/9a01690a-0169-4b4d-ad62-3ebcdf7069d3)
 
-
-
-
-
+### Decoder
+![dc tt](https://github.com/Divya110205/Experiment-08-Encoders-and-decoders-/assets/119404855/5f577182-1826-4d41-932f-5a604fe9a8dd)
 
 ### RESULTS 
+Thus the program to design encoder and decoder is done.
